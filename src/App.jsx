@@ -1,29 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Counter from './components/Count'
-import {useDispatch} from  "react-redux"
+import products from "./products.json";
+import "./App.css";
+//import Product from  "./Product";
+import Cart from "./components/Cart";
+import Product from "./components/Product";
 
 
 function App() {
-  const dispatch = useDispatch();
-
 
   return (
-    <>
-      <div>
-        
-          <button onClick={e => dispatch ({type:'INCREMENT'})}>Increment</button>
-          <Counter/>
+    <div className="App">
+    <Cart />
+    <div className="products">
+      {products.map((product) => (
 
-     
-
-          <button onClick={e => dispatch({type:'DECREMENT'})}>Decrement</button>
-      </div>
-     
-    </>
+        <Product {...product} />
+      ))}
+    </div>
+  </div>
   )
 }
 
 export default App
+
+
+
+
